@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Has the Fed Fulfilled Its Dual Mandate?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .header .meta {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .intro {
+            padding: 30px 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .intro h2 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .intro p {
+            margin-bottom: 12px;
+        }
+
+        .story-focus {
+            background: white;
+            border-left: 3px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .story-focus strong {
+            color: #3498db;
+        }
+
+        section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .viz-context {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 3px solid #e74c3c;
+        }
+
+        .viz-context p {
+            margin-bottom: 8px;
+        }
+
+        .viz-frame {
+            width: 100%;
+            height: 650px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .insight {
+            font-style: italic;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .conclusion {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+        }
+
+        .conclusion h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .conclusion p {
+            margin-bottom: 12px;
+        }
+
+        .footer {
+            padding: 15px 40px;
+            background: #222;
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 768px) {
+            .header, .intro, section, .conclusion, .footer {
+                padding: 20px;
+            }
+            
+            .viz-frame {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Has the Fed Fulfilled Its Dual Mandate?</h1>
+            <p class="meta">25 Years of Data (2002-2026) | Assignment 2</p>
+        </div>
+
+        <div class="intro">
+            <h2>The Question</h2>
+            <p>
+                Congress gave the Federal Reserve two jobs: <i>keep inflation low</i> and 
+                <i>keep unemployment low</i>. The catch? These goals often conflict. Lowering rates 
+                to fight unemployment can spike inflation. Raising rates to cool inflation can kill jobs.
+            </p>
+            <p>
+                We're analyzing 25 years of data to see how well the Fed balanced this tightrope act.
+            </p>
+
+            <div class="story-focus">
+                <p><strong>Story Development Focus:</strong> This analysis uses a <strong>data driven narrative framework</strong> 
+                with Plotly interactive visualizations. The story follows a chronological progression - showing the dual mandate 
+                challenge, the Fed's responses, major crisis moments, and the fundamental economic tradeoff. Each visualization 
+                builds on the previous one to answer our central question.</p>
+            </div>
+        </div>
+
+        <section>
+            <h2>1. The Dual Mandate Over Time</h2>
+            
+            <div class="viz-context">
+                <p><strong>What you're seeing:</strong> Two timeseries showing inflation (top) and unemployment (bottom) from 2002-2026.</p>
+                <p><strong>Why it matters:</strong> When these move in opposite directions, the Fed has to pick which problem to solve first.</p>
+            </div>
+
+            <iframe class="viz-frame" src="dual_mandate_overview.html" title="Dual Mandate Overview"></iframe>
+            
+            <p class="insight">Key takeaway: The Fed kept inflation near 2% for most of this period, except during the 2008 crisis (deflation) and 2021-2023 (9% spike).</p>
+        </section>
+
+        <section>
+            <h2>2. Fed's Response: Did Their Actions Make Sense?</h2>
+            
+            <div class="viz-context">
+                <p><strong>What you're seeing:</strong> The thick green line is the Fed Funds Rate (what they control). The other lines show what was happening with inflation and unemployment.</p>
+                <p><strong>Why it matters:</strong> This shows whether the Fed's decisions were logical given the economic conditions.</p>
+            </div>
+
+            <iframe class="viz-frame" src="fed_response_analysis.html" title="Fed Response Analysis"></iframe>
+            
+            <p class="insight">Key takeaway: The Fed responded fast in crises (2008, COVID) by cutting rates to near-zero. When inflation hit 9% in 2022, they raised rates from 0% to 5.3% in under two years.</p>
+        </section>
+
+        <section>
+            <h2>3. The Big Tests: Three Major Crises</h2>
+            
+            <div class="viz-context">
+                <p><strong>What you're seeing:</strong> Shaded regions highlight three crisis periods where the Fed was really tested.</p>
+                <p><strong>Why it matters:</strong> Anyone can manage during calm times. Crises reveal how well the Fed actually performs.</p>
+            </div>
+
+            <iframe class="viz-frame" src="crisis_periods.html" title="Crisis Periods Timeline"></iframe>
+            
+            <p class="insight">Key takeaway: 2008 Financial Crisis - cut rates to zero. COVID-19 - emergency cuts within days. 2022 Inflation - aggressive hikes to regain control. All three show the Fed willing to act decisively.</p>
+        </section>
+
+        <section>
+            <h2>4. The Fundamental Question: Can You Have Both?</h2>
+            
+            <div class="viz-context">
+                <p><strong>What you're seeing:</strong> Each dot is a month, plotted by unemployment (x-axis) and inflation (y-axis). Color = year.</p>
+                <p><strong>Why it matters:</strong> If low inflation and low unemployment can coexist, dots cluster in bottom-left. If there's always a tradeoff, they'd form a diagonal line.</p>
+            </div>
+
+            <iframe class="viz-frame" src="inflation_unemployment_relationship.html" title="Inflation vs Unemployment"></iframe>
+            
+            <p class="insight">Key takeaway: The correlation is moderate (-0.42), not a strong tradeoff. The 2015-2019 period averaged 4.4% unemployment and 1.6% inflation - near perfect execution. COVID created the outlier (14.8% unemployment, 0.3% inflation). The 2022 spike hit 9% inflation with only 3.6% unemployment. Recent data (2023-2026) shows inflation falling from 9% to 2.4% while unemployment stayed around 4% - a successful soft landing.</p>
+        </section>
+
+        <div class="conclusion">
+            <h2>Bottom Line</h2>
+            <p>
+                <strong>Has the Fed fulfilled its dual mandate?</strong> Mostly yes.
+            </p>
+            <p>
+                For the majority of 25 years, they kept inflation close to 2% and unemployment trending down. 
+                Their crisis responses (2008, COVID) were swift and prevented worse outcomes. The 2015-2019 
+                period was nearly perfect execution.
+            </p>
+            <p>
+                The 2021-2023 inflation spike is the big black mark. Whether they kept rates too low for too 
+                long is debatable, but hitting 9% inflation - the worst in 40 years - shows they were late to act. 
+                That said, the current soft landing (bringing inflation back down to ~3% without causing a recession) 
+                is impressive.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>Data: BLS (CPI, Unemployment) & FRED (Fed Funds Rate) | Tools: Python, Pandas, Plotly</p>
+        </div>
+    </div>
+</body>
+</html>
