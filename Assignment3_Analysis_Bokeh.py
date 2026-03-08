@@ -484,11 +484,18 @@ def create_paneled_state_comparison(df, summary):
     print("\n[Creating NEW Visualization: Paneled State Comparison]")
     
     # Color mapper for consistent coloring across all panels
+    # YlOrRd9 in Bokeh is stored red-to-yellow, so we reverse it to get yellow-to-red
+    # LOW death rates (Hawaii 3.9) should be YELLOW
+    # HIGH death rates (Mississippi 27.6) should be RED
+    min_death = df['Death_Rate'].min()  
     max_death = df['Death_Rate'].max()
+    
+    # Use reversed palette: now palette[0]=yellow (for low deaths), palette[-1]=red (for high deaths)
+    yellow_to_red = ['#ffffcc', '#ffeda0', '#fed976', '#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026']
     mapper = LinearColorMapper(
-        palette=YlOrRd9,
-        low=0,
-        high=max_death
+        palette=yellow_to_red,
+        low=min_death,  # 3.9 maps to yellow
+        high=max_death  # 27.6 maps to red
     )
     
     # Define category order (lax → strict for top-to-bottom organization)
