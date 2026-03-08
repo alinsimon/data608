@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.8.2.min.js"></script>
+<script type="text/javascript">
+Bokeh.set_log_level("info");
+</script>
+  </head>
+  <body>
+    <div id="b30cc0db-52ee-473c-942e-42045958215a" data-root-id="p1270" style="display: contents;"></div>
+  
+    <script type="application/json" id="befe83ee-4ce9-4352-b1f1-1ef728a3e5d3">
+      {"82dc0883-b7a2-4d93-9dbf-132621f905aa":{"version":"3.8.2","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"p1311","attributes":{"notifications":{"type":"object","name":"Notifications","id":"p1312"}}},"roots":[{"type":"object","name":"Figure","id":"p1270","attributes":{"width":900,"height":400,"x_range":{"type":"object","name":"DataRange1d","id":"p1272"},"y_range":{"type":"object","name":"FactorRange","id":"p1280","attributes":{"factors":["Very Strict","Strict","Moderate","Lax","Very Lax"]}},"x_scale":{"type":"object","name":"LinearScale","id":"p1281"},"y_scale":{"type":"object","name":"CategoricalScale","id":"p1282"},"title":{"type":"object","name":"Title","id":"p1273","attributes":{"text":"Average Firearm Deaths by Gun Law Strictness (2024)","text_font_size":"16pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1301","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1266","attributes":{"selected":{"type":"object","name":"Selection","id":"p1267","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1268"},"data":{"type":"map","entries":[["index",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/2NhYGBgBmImIGZkgAAAJ1phSBQAAAA="},"shape":[5],"dtype":"int32","order":"little"}],["Law_Strictness",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/2NlYGBgAWJmIGYCYkYgBgD9tWl9FAAAAA=="},"shape":[5],"dtype":"int32","order":"little"}],["Law_Label",{"type":"ndarray","array":["Very Strict","Strict","Moderate","Lax","Very Lax"],"shape":[5],"dtype":"object","order":"little"}],["Avg_Death_Rate",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/3v/DgQUHM6AAI+GQ85BMSDSdmAAA0OHrrk3OufeMHEAAKOWR2YoAAAA"},"shape":[5],"dtype":"float64","order":"little"}],["Std_Dev",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/4sIM6nSOi/uEBtg8f6MLY9DyAzVlMLJzA5bD6qc0U7jcPjocuvRAwFhBwA1LngiKAAAAA=="},"shape":[5],"dtype":"float64","order":"little"}],["States",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/+NkYGDgAGJOIOYBYl4gBgA1Hha8FAAAAA=="},"shape":[5],"dtype":"int32","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1302","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1303"}}},"glyph":{"type":"object","name":"HBar","id":"p1298","attributes":{"y":{"type":"field","field":"Law_Label"},"height":{"type":"value","value":0.7},"right":{"type":"field","field":"Avg_Death_Rate"},"line_color":{"type":"value","value":"white"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"Avg_Death_Rate","transform":{"type":"object","name":"LinearColorMapper","id":"p1269","attributes":{"palette":["#800026","#bd0026","#e31a1c","#fc4e2a","#fd8d3c","#feb24c","#fed976","#ffeda0","#ffffcc"],"low":8.466666666666667,"high":20.846153846153847}}}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1299","attributes":{"y":{"type":"field","field":"Law_Label"},"height":{"type":"value","value":0.7},"right":{"type":"field","field":"Avg_Death_Rate"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"Avg_Death_Rate","transform":{"id":"p1269"}},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1300","attributes":{"y":{"type":"field","field":"Law_Label"},"height":{"type":"value","value":0.7},"right":{"type":"field","field":"Avg_Death_Rate"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"Avg_Death_Rate","transform":{"id":"p1269"}},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1279","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p1293","attributes":{"renderers":"auto","tooltips":[["Category","@Law_Label"],["Average Death Rate","@Avg_Death_Rate{0.1} per 100k"],["Number of States","@States"]],"sort_by":null}},{"type":"object","name":"SaveTool","id":"p1294"}]}},"left":[{"type":"object","name":"CategoricalAxis","id":"p1288","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p1289"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p1290"},"axis_label":"Law Strictness Category","axis_label_text_font_size":"12pt","major_label_policy":{"type":"object","name":"AllLabels","id":"p1291"},"major_label_text_font_size":"11pt"}}],"right":[{"type":"object","name":"ColorBar","id":"p1309","attributes":{"location":[0,0],"title":"Deaths per 100k","ticker":{"type":"object","name":"BasicTicker","id":"p1308","attributes":{"mantissas":[1,2,5]}},"major_label_policy":{"type":"object","name":"NoOverlap","id":"p1310"},"label_standoff":12,"color_mapper":{"id":"p1269"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1283","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1284","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1285"},"axis_label":"Average Death Rate (per 100,000)","axis_label_text_font_size":"12pt","major_label_policy":{"type":"object","name":"AllLabels","id":"p1286"}}}],"center":[{"type":"object","name":"Grid","id":"p1287","attributes":{"axis":{"id":"p1283"}}},{"type":"object","name":"Grid","id":"p1292","attributes":{"dimension":1,"axis":{"id":"p1288"}}},{"type":"object","name":"LabelSet","id":"p1304","attributes":{"source":{"id":"p1266"},"x":{"type":"field","field":"Avg_Death_Rate"},"y":{"type":"field","field":"Law_Label"},"text":{"type":"field","field":"Avg_Death_Rate"},"x_offset":{"type":"value","value":10},"y_offset":{"type":"value","value":-10},"text_font_size":{"type":"value","value":"14pt"},"text_font_style":{"type":"value","value":"bold"}}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('befe83ee-4ce9-4352-b1f1-1ef728a3e5d3').textContent;
+              const render_items = [{"docid":"82dc0883-b7a2-4d93-9dbf-132621f905aa","roots":{"p1270":"b30cc0db-52ee-473c-942e-42045958215a"},"root_ids":["p1270"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+State,Death_Rate,Law_Strictness,Law_Label
+Alabama,23.7,1,Very Lax
+Alaska,24.8,1,Very Lax
+Arizona,17.9,1,Very Lax
+Arkansas,20.8,1,Very Lax
+California,7.3,5,Very Strict
+Colorado,16.4,4,Strict
+Connecticut,6.2,5,Very Strict
+Delaware,11.9,4,Strict
+District of Columbia,21.8,5,Very Strict
+Florida,14.1,3,Moderate
+Georgia,18.0,2,Lax
+Hawaii,3.9,5,Very Strict
+Idaho,16.8,1,Very Lax
+Illinois,12.5,5,Very Strict
+Indiana,17.4,2,Lax
+Iowa,12.1,3,Moderate
+Kansas,15.2,2,Lax
+Kentucky,19.2,1,Very Lax
+Louisiana,22.5,1,Very Lax
+Maine,13.0,3,Moderate
+Maryland,11.6,5,Very Strict
+Massachusetts,4.1,5,Very Strict
+Michigan,12.2,4,Strict
+Minnesota,10.1,4,Strict
+Mississippi,27.6,1,Very Lax
+Missouri,19.9,1,Very Lax
+Montana,21.8,2,Lax
+Nebraska,11.0,3,Moderate
+Nevada,18.2,3,Moderate
+New Hampshire,10.8,1,Very Lax
+New Jersey,4.2,5,Very Strict
+New Mexico,26.6,1,Very Lax
+New York,4.6,5,Very Strict
+North Carolina,16.9,3,Moderate
+North Dakota,12.1,2,Lax
+Ohio,14.8,2,Lax
+Oklahoma,19.6,2,Lax
+Oregon,15.7,4,Strict
+Pennsylvania,12.5,3,Moderate
+Rhode Island,5.0,4,Strict
+South Carolina,19.8,2,Lax
+South Dakota,17.3,2,Lax
+Tennessee,20.3,2,Lax
+Texas,14.4,2,Lax
+Utah,13.3,2,Lax
+Vermont,11.7,3,Moderate
+Virginia,13.2,4,Strict
+Washington,11.7,4,Strict
+West Virginia,15.9,1,Very Lax
+Wisconsin,12.4,3,Moderate
+Wyoming,24.5,1,Very Lax

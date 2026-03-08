@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.8.2.min.js"></script>
+<script type="text/javascript">
+Bokeh.set_log_level("info");
+</script>
+  </head>
+  <body>
+    <div id="ec05839e-2edc-4934-b5a4-5b781fe106be" data-root-id="p1321" style="display: contents;"></div>
+  
+    <script type="application/json" id="c7f3890f-9664-4445-93fb-93d71055c5dd">
+      {"925ab49d-eba7-4324-8639-86f8953af98d":{"version":"3.8.2","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"p1379","attributes":{"notifications":{"type":"object","name":"Notifications","id":"p1380"}}},"roots":[{"type":"object","name":"Figure","id":"p1321","attributes":{"width":900,"x_range":{"type":"object","name":"DataRange1d","id":"p1322"},"y_range":{"type":"object","name":"DataRange1d","id":"p1323"},"x_scale":{"type":"object","name":"LinearScale","id":"p1331"},"y_scale":{"type":"object","name":"LinearScale","id":"p1332"},"title":{"type":"object","name":"Title","id":"p1324","attributes":{"text":"Gun Law Strictness vs Death Rate (Correlation: -0.735)","text_font_size":"16pt"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1362","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1318","attributes":{"selected":{"type":"object","name":"Selection","id":"p1319","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1320"},"data":{"type":"map","entries":[["index",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/w3DBw6CQAAAsHPiBgVxC4p76/8fZ5s0hBBq1m3YtGXbyI5de/YdOHRkbOLYiamZU3Nnzl24dOXajVsLS3furTx49OTZi1dv3n349OXbj19//gEGIO7wzAAAAA=="},"shape":[51],"dtype":"int32","order":"little"}],["State",{"type":"ndarray","array":["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"],"shape":[51],"dtype":"object","order":"little"}],["Death_Rate",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/0WQwRGCQAxF7UDG8eDFm8rKoCwEkNFLCqAO6rANbcM2pA3q0CXP9V/+/J+fbLIiX7wuOr4DOh0CphJdq8zYmj94/A2cwg25XBczKvSSusc/Mqek7tBntFju3pLP8FNyCezwd/p8BNzYW+I+1n8gV5HbU0/QV+at6PdxL6ufYCFXxDuM18zj3Z5/62v8nP6M/t8df225Anbc3+kHtYIysJgBAAA="},"shape":[51],"dtype":"float64","order":"little"}],["Law_Strictness",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/12MSwoAQAhCK537X3laKEgLKfy8rqoOvRXPxWr0uzPhewtl3jIy9xGMPnyL8nj8CU7yzfylNPxMzAAAAA=="},"shape":[51],"dtype":"int32","order":"little"}],["Law_Label",{"type":"ndarray","array":["Very Lax","Very Lax","Very Lax","Very Lax","Very Strict","Strict","Very Strict","Strict","Very Strict","Moderate","Lax","Very Strict","Very Lax","Very Strict","Lax","Moderate","Lax","Very Lax","Very Lax","Moderate","Very Strict","Very Strict","Strict","Strict","Very Lax","Very Lax","Lax","Moderate","Moderate","Very Lax","Very Strict","Very Lax","Very Strict","Moderate","Lax","Lax","Lax","Strict","Moderate","Strict","Lax","Lax","Lax","Lax","Lax","Moderate","Strict","Strict","Very Lax","Moderate","Very Lax"],"shape":[51],"dtype":"object","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1363","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1364"}}},"glyph":{"type":"object","name":"Scatter","id":"p1359","attributes":{"x":{"type":"field","field":"Law_Strictness"},"y":{"type":"field","field":"Death_Rate"},"size":{"type":"value","value":12},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.8},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"Death_Rate","transform":{"type":"object","name":"LinearColorMapper","id":"p1355","attributes":{"palette":["#a50026","#d73027","#f46d43","#fdae61","#fee090","#ffffbf","#e0f3f8","#abd9e9","#74add1","#4575b4","#313695"],"low":3.9,"high":27.6}}},"fill_alpha":{"type":"value","value":0.8},"hatch_alpha":{"type":"value","value":0.8}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1360","attributes":{"x":{"type":"field","field":"Law_Strictness"},"y":{"type":"field","field":"Death_Rate"},"size":{"type":"value","value":12},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"Death_Rate","transform":{"id":"p1355"}},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1361","attributes":{"x":{"type":"field","field":"Law_Strictness"},"y":{"type":"field","field":"Death_Rate"},"size":{"type":"value","value":12},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"Death_Rate","transform":{"id":"p1355"}},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1373","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1367","attributes":{"selected":{"type":"object","name":"Selection","id":"p1368","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1369"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/2NkYGBgBWIAxS9WnggAAAA="},"shape":[2],"dtype":"int32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/yv9yGM7McXE4fD0kwmZOxQcABGAUWUQAAAA"},"shape":[2],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1374","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1375"}}},"glyph":{"type":"object","name":"Line","id":"p1370","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.8,"line_width":3,"line_dash":[6]}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1371","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.1,"line_width":3,"line_dash":[6]}},"muted_glyph":{"type":"object","name":"Line","id":"p1372","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_alpha":0.2,"line_width":3,"line_dash":[6]}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1330","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p1343","attributes":{"renderers":"auto","tooltips":[["State","@State"],["Law Strictness","@Law_Label"],["Death Rate","@Death_Rate{0.1} per 100k"]],"sort_by":null}},{"type":"object","name":"SaveTool","id":"p1344"},{"type":"object","name":"PanTool","id":"p1345"},{"type":"object","name":"BoxZoomTool","id":"p1346","attributes":{"dimensions":"both","overlay":{"type":"object","name":"BoxAnnotation","id":"p1347","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"p1353","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"p1352","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"p1354"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1338","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1339","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1340"},"axis_label":"Death Rate (per 100,000)","axis_label_text_font_size":"12pt","major_label_policy":{"type":"object","name":"AllLabels","id":"p1341"}}}],"right":[{"type":"object","name":"ColorBar","id":"p1365","attributes":{"location":[0,0],"title":"Death Rate\n(per 100k)","major_label_policy":{"type":"object","name":"NoOverlap","id":"p1366"},"label_standoff":12,"color_mapper":{"id":"p1355"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1333","attributes":{"ticker":{"type":"object","name":"FixedTicker","id":"p1378","attributes":{"ticks":[1,2,3,4,5],"minor_ticks":[]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1335"},"axis_label":"Gun Law Strictness","axis_label_text_font_size":"12pt","major_label_overrides":{"type":"map","entries":[[1,"Very Lax"],[2,"Lax"],[3,"Moderate"],[4,"Strict"],[5,"Very Strict"]]},"major_label_policy":{"type":"object","name":"AllLabels","id":"p1336"}}}],"center":[{"type":"object","name":"Grid","id":"p1337","attributes":{"axis":{"id":"p1333"}}},{"type":"object","name":"Grid","id":"p1342","attributes":{"dimension":1,"axis":{"id":"p1338"}}},{"type":"object","name":"Legend","id":"p1376","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p1377","attributes":{"label":{"type":"value","value":"Trend Line (R\u00b2=0.541)"},"renderers":[{"id":"p1373"}]}}]}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('c7f3890f-9664-4445-93fb-93d71055c5dd').textContent;
+              const render_items = [{"docid":"925ab49d-eba7-4324-8639-86f8953af98d","roots":{"p1321":"ec05839e-2edc-4934-b5a4-5b781fe106be"},"root_ids":["p1321"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

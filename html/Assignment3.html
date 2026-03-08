@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Stricter Gun Laws Reduce Firearm Deaths?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 40px;
+            border-bottom: 3px solid #34495e;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .header .meta {
+            font-size: 0.9em;
+            opacity: 0.85;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+
+        .intro {
+            padding: 35px 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .key-finding {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .key-finding h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .key-finding .stat {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .key-finding p {
+            color: #34495E;
+            margin: 8px 0;
+        }
+
+        .visualization {
+            padding: 40px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .visualization:last-child {
+            border-bottom: none;
+        }
+
+        .visualization h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.6em;
+        }
+
+        .visualization .chart-type {
+            display: inline-block;
+            background: #34495e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .visualization .description {
+            margin: 20px 0;
+            color: #555;
+        }
+
+        .visualization .description h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .visualization .description p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .visualization .description ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .visualization .description ul li {
+            margin: 5px 0;
+        }
+
+        .visualization iframe {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .methodology {
+            padding: 35px 40px;
+            background: #f8f9fa;
+        }
+
+        .methodology h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .methodology h3 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .methodology p, .methodology ul {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .methodology ul {
+            margin-left: 25px;
+        }
+
+        .methodology ul li {
+            margin: 6px 0;
+        }
+
+        .footer {
+            padding: 25px 40px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .rubric-note {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .rubric-note strong {
+            color: #2c3e50;
+        }
+
+        .rubric-note p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header, .intro, .visualization, .methodology, .footer {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.6em;
+            }
+
+            .visualization iframe {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Do Stricter Gun Laws Reduce Firearm Deaths?</h1>
+            <div class="meta">
+               Data Sources: CDC Open Data API, Giffords Law Center Annual Scorecard (2024 grades) | Date: March 2026 | Alinzon Simon
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="intro">
+            <h2>Research Question</h2>
+            <p>
+                Gun legislation varies substantially across American states, ranging from minimal regulations to comprehensive 
+                regulatory frameworks including background checks, waiting periods, and licensing requirements. This analysis 
+                examines whether these policy differences correlate with measurable differences in firearm mortality outcomes.
+            </p>
+            <p>
+                Using mortality data from the CDC Open Data API (Mapping Injury, Overdose, and Violence dataset) and gun law 
+                grades from the Giffords Law Center Annual Gun Law Scorecard, we quantified the relationship between regulatory 
+                strictness and death rates across all states.
+            </p>
+
+            <!-- Key Finding Box -->
+            <div >
+                <h3>Primary Finding</h3>
+                <div class="stat">r = -0.735</div>
+                <p>
+                    Our analysis reveals a strong negative correlation between gun law strictness and firearm mortality rates. 
+                    States with stricter regulations consistently show lower death rates:
+                </p>
+                <ul style="margin-left: 20px; margin-top: 10px; color: #555;">
+                    <li>Very strict states (A grade): 8.5 deaths per 100,000</li>
+                    <li>Very lax states (F grade): 20.8 deaths per 100,000</li>
+                    <li>Difference: 2.5 fold variation in mortality rates</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Visualization 1: Scatter Plot -->
+        <div class="visualization">
+            <h2>Visualization 1: The Overall Pattern</h2>
+            <span class="chart-type">Scatter Plot with Trend Line</span>
+            
+            <div class="description">
+                <h3>Interpretation</h3>
+                <p>
+                    Each point represents one state plotted by law strictness (x-axis, F to A grade) and firearm mortality 
+                    rate (y-axis, deaths per 100,000). The regression line demonstrates the negative relationship between 
+                    these variables.
+                </p>
+                <p>
+                    The pattern is consistent: states with weaker laws (Mississippi, Louisiana, Wyoming) cluster in the 
+                    upper-left quadrant with higher death rates. States with stronger laws (Massachusetts, New York, 
+                    California) cluster in the lower-right with substantially lower rates. This distribution suggests 
+                    a systematic relationship rather than random variation.
+                </p>
+
+                <div class="rubric-note">
+                    A scatter plot effectively displays bivariate relationships 
+                    while preserving individual data points. This maintains analytical transparency and allows viewers 
+                    to identify specific states or patterns. The regression line quantifies the overall trend.
+                </div>
+            </div>
+
+            <iframe src="scatter_law_vs_deaths.html" title="Scatter plot showing relationship between gun law strictness and firearm deaths" style="height: 700px;"></iframe>
+        </div>
+
+        <!-- Visualization 2: State-by-State Paneled Comparison -->
+        <div class="visualization">
+            <h2>Visualization 2: Every State's Story</h2>
+            <span class="chart-type">Paneled Horizontal Bar Chart</span>
+
+            <div class="description">
+                <h3>Interpretation</h3>
+                <p>
+                    These charts present all states as horizontal bars organized into five separate panels , one for 
+                    each gun law grade tier (F through A). The x-axis shows firearm deaths per 100,000 people on a 
+                    shared scale (0-30) across all panels, enabling direct cross category comparison while keeping each tier 
+                    readable on its own. All jurisdictions within each panel are sorted by death rate.
+                </p>
+                <p>
+                   The Very Lax (F) panel is dominated by long red bars, with 
+                    states like Mississippi (27.6), New Mexico (26.6), and Alaska (24.8) exceeding 20 deaths per 100,000. 
+                    Moving down through the panels, bar lengths shrink progressively and colors shift from red to yellow. 
+                    The Very Strict (A) panel shows predominantly short yellow bars, with Hawaii (3.9), Massachusetts (4.1), 
+                    New Jersey (4.2), and New York (4.6) all under 5 per 100,000 with the notable exception of the District 
+                    of Columbia (21.8), which reflects the unique challenges of an urban jurisdiction surrounded by states 
+                    with weaker laws.
+                </p>
+
+                <div class="rubric-note">
+                    Splitting states into grade specific panels reduces 
+                    visual clutter while maintaining access to individual state values. The shared x-axis preserves 
+                    proportional comparison across all panels, and the within panel ordering by death rate allows 
+                    ranking within each policy tier.
+                </div>
+            </div>
+
+            <iframe src="paneled_state_comparison.html" title="Paneled bar charts showing firearm death rates for all states grouped by gun law grade" style="height: 1400px;"></iframe>
+        </div>
+
+        <!-- Visualization 3: Category Comparison -->
+        <div class="visualization">
+            <h2>Visualization 3: The Big Picture</h2>
+            <span class="chart-type">Horizontal Bar Chart</span>
+            
+            <div class="description">
+                <h3>Interpretation</h3>
+                <p>
+                    This chart aggregates state level data into five categories based on gun law grades, displaying the 
+                    mean mortality rate for each category. This reduces dimensionality from state level data to 5 summary 
+                    statistics.
+                </p>
+                <p>
+                    The progression is monotonic and substantial. Each incremental increase in law strictness corresponds 
+                    to a measurable decrease in average mortality rate:
+                </p>
+                <ul>
+                    <li>Very Lax to Very Strict: 59% reduction in average death rate</li>
+                    <li>No overlap between extreme categories indicates robust effect size</li>
+                </ul>
+
+                <div class="rubric-note">
+                    Aggregated bar charts sacrifice granularity for clarity. 
+                    This reduction simplifies pattern recognition and is appropriate when the high level trend is the 
+                    primary message.
+                </div>
+            </div>
+
+            <iframe src="heatmap_average_by_category.html" title="Bar chart showing average firearm death rates by gun law strictness category" style="height: 700px;"></iframe>
+        </div>
+
+        <!-- Methodology -->
+        <div class="methodology">
+            
+            <h3>Data Sources</h3>
+            <ul>
+                <li><strong>CDC Open Data API:</strong> Firearm mortality rates per 100,000 people from the "Mapping Injury, Overdose, and Violence-State" dataset</li>
+                <li><strong>Giffords Law Center Annual Gun Law Scorecard:</strong> 2024 state gun law letter grades (A through F) converted to 5 point ordinal scale for statistical analysis</li>
+            </ul>
+
+            <h3>Analytical Approach</h3>
+            <p>
+                Gun law letter grades (A through F) were converted to a 5 point ordinal scale (F=1 to A=5) to enable 
+                correlation analysis.
+            </p>
+
+            <h3>Limitations and Interpretation</h3>
+            <p>
+                A statistically significant negative correlation (r = -0.735, 
+                p < 0.001) exists between gun law strictness and firearm mortality rates across state level observations.
+            </p>
+            <p>
+                Direct causation. Multiple confounding variables 
+                influence firearm mortality including socioeconomic factors, cultural contexts, population density, and 
+                enforcement effectiveness. The observed correlation, while strong, represents association rather than 
+                definitive causal proof.
+            </p>
+
+            <h3>Visualization Framework</h3>
+            <p>
+                Interactive visualizations were generated using Bokeh, a Python based visualization library.
+            </p>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Statistical analysis of gun policy and firearm mortality across U.S. states</p>
+              </div>
+    </div>
+</body>
+</html>

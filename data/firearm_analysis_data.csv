@@ -1,0 +1,52 @@
+State,Death_Rate,Law_Strictness,Law_Label,State_Code
+Alabama,23.7,1,Very Lax,AL
+Alaska,24.8,1,Very Lax,AK
+Arizona,17.9,1,Very Lax,AZ
+Arkansas,20.8,1,Very Lax,AR
+California,7.3,5,Very Strict,CA
+Colorado,16.4,4,Strict,CO
+Connecticut,6.2,5,Very Strict,CT
+Delaware,11.9,4,Strict,DE
+District of Columbia,21.8,5,Very Strict,DC
+Florida,14.1,3,Moderate,FL
+Georgia,18.0,2,Lax,GA
+Hawaii,3.9,5,Very Strict,HI
+Idaho,16.8,1,Very Lax,ID
+Illinois,12.5,5,Very Strict,IL
+Indiana,17.4,2,Lax,IN
+Iowa,12.1,3,Moderate,IA
+Kansas,15.2,2,Lax,KS
+Kentucky,19.2,1,Very Lax,KY
+Louisiana,22.5,1,Very Lax,LA
+Maine,13.0,3,Moderate,ME
+Maryland,11.6,5,Very Strict,MD
+Massachusetts,4.1,5,Very Strict,MA
+Michigan,12.2,4,Strict,MI
+Minnesota,10.1,4,Strict,MN
+Mississippi,27.6,1,Very Lax,MS
+Missouri,19.9,1,Very Lax,MO
+Montana,21.8,2,Lax,MT
+Nebraska,11.0,3,Moderate,NE
+Nevada,18.2,3,Moderate,NV
+New Hampshire,10.8,1,Very Lax,NH
+New Jersey,4.2,5,Very Strict,NJ
+New Mexico,26.6,1,Very Lax,NM
+New York,4.6,5,Very Strict,NY
+North Carolina,16.9,3,Moderate,NC
+North Dakota,12.1,2,Lax,ND
+Ohio,14.8,2,Lax,OH
+Oklahoma,19.6,2,Lax,OK
+Oregon,15.7,4,Strict,OR
+Pennsylvania,12.5,3,Moderate,PA
+Rhode Island,5.0,4,Strict,RI
+South Carolina,19.8,2,Lax,SC
+South Dakota,17.3,2,Lax,SD
+Tennessee,20.3,2,Lax,TN
+Texas,14.4,2,Lax,TX
+Utah,13.3,2,Lax,UT
+Vermont,11.7,3,Moderate,VT
+Virginia,13.2,4,Strict,VA
+Washington,11.7,4,Strict,WA
+West Virginia,15.9,1,Very Lax,WV
+Wisconsin,12.4,3,Moderate,WI
+Wyoming,24.5,1,Very Lax,WY
