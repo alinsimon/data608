@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Do We Get Paid? — Data Practitioner Salaries</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 40px;
+            border-bottom: 3px solid #34495e;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .header .meta {
+            font-size: 0.9em;
+            opacity: 0.85;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+
+        .intro {
+            padding: 35px 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;            
+            text-align: justify;
+        }
+
+        .intro h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .key-finding {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .key-finding h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .key-finding .stat {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .key-finding p {
+            color: #34495E;
+            margin: 8px 0;
+        }
+
+        .visualization {
+            padding: 40px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .visualization:last-child {
+            border-bottom: none;
+        }
+
+        .visualization h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.6em;
+        }
+
+        .visualization .chart-type {
+            display: inline-block;
+            background: #34495e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .visualization .description {
+            margin: 20px 0;
+            color: #555;
+            text-align: justify;
+        }
+        .visualization .description h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .visualization .description p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .visualization .description ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .visualization .description ul li {
+            margin: 5px 0;
+        }
+
+        .visualization img {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 15px;
+            display: block;
+        }
+
+        .methodology {
+            padding: 35px 40px;
+            background: #f8f9fa;            
+            text-align: justify;
+        }
+
+        .methodology h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .methodology h3 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .methodology p, .methodology ul {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .methodology ul {
+            margin-left: 25px;
+        }
+
+        .methodology ul li {
+            margin: 6px 0;
+        }
+
+        .footer {
+            padding: 25px 40px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .rubric-note {
+            margin-top: 15px;
+            padding: 12px 16px;
+            border-top: 1px solid #e0e0e0;
+            background: #f8f9fa;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .rubric-note strong {
+            color: #2c3e50;
+        }
+
+        .rubric-note p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .story-focus {
+            padding: 18px 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 20px 0;
+        }
+
+        .story-focus h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .story-focus p {
+            color: #2c3e50;
+            font-size: 0.97em;
+            margin-bottom: 8px;
+        }
+
+        .story-focus ul {
+            margin-left: 20px;
+            color: #2c3e50;
+            font-size: 0.97em;
+        }
+
+        .story-focus ul li {
+            margin: 4px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header, .intro, .visualization, .methodology, .footer {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.6em;
+            }
+
+            .visualization iframe {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>How Much Do We Get Paid?</h1>
+            <div class="subtitle">Data Practitioner Salaries Across Roles and States</div>
+            <div class="meta">
+                Data Source: U.S. Bureau of Labor Statistics (BLS) 2024 | Date: March 2026 | Alinzon Simon
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div class="intro">
+            <h2>The Question</h2>
+            <p>
+                If you work in data as an analyst, scientist, architect, or developer, you've probably
+                wondered at some point how your salary stacks up. Job titles vary wildly, and so do the
+                paychecks. Using 2024 data from the Bureau of Labor Statistics, I set out to answer one
+                simple question: <em>How much do data practitioners actually get paid?</em>
+            </p>
+            <p>
+                The three charts below look at that question from different angles. The first ranks every
+                major data role by national average salary. The second shows which states pay the most
+                (and the least) for top roles. The third puts both dimensions together so you can see
+                exactly where the highest paying combinations of role and location are.
+            </p>
+
+            <!-- Story Development Focus -->
+            <div class="story-focus">
+                <h3>Story Development Focus</h3>
+                <p>
+                    Two focus points shaped how this story was built:
+                </p>
+                <ul>
+                    <li><strong>Visual Selection Framework</strong> I picked each chart type to match
+                    what its question actually needs. Rankings call for a sorted bar chart (easy to scan,
+                    labels fit naturally). A shared axis keeps state comparisons accurate and prevents misleading visual differences.
+                    A role by state salary grid needs a heatmap it's the only format
+                    that shows two categorical dimensions and a continuous value at the same time. Each
+                    chart is the simplest option that fully answers its question.</li>
+                    <li><strong>Story Framework</strong> the three charts tell a connected story: start
+                    broad (which roles pay the most, nationally), zoom in on geography (which states lead
+                    and trail), then zoom out again to see the full picture (every top state for every role
+                    side by side). Each chart assumes you've seen the one before it, so the story builds
+                    rather than repeating itself.</li>
+                </ul>
+                <p>
+                    <strong>Audience:</strong> People who work in data and want to know where they stand
+                    whether they're benchmarking their current salary, weighing a job offer in a new state,
+                    or deciding which direction to grow their career.
+                </p>
+                <p>
+                    <strong>Visual theme:</strong> All three charts share the same dark navy header, the
+                    same font, and a consistent color logic the leader is always the most saturated
+                    color, context fades to gray, and lagging values shift to red. A reader who learns the
+                    color meaning in Chart 1 doesn't have to relearn it in Charts 2 or 3.
+                </p>
+            </div>
+
+            <!-- Key Finding Box -->
+            <div class="key-finding">
+                <h3>Primary Findings</h3>
+                <div class="stat">$143K – $145K</div>
+                <p>
+                    Software Developers and Data Architects come out on top nationally. A few numbers worth knowing:
+                </p>
+                <ul style="margin-left: 20px; margin-top: 10px; color: #555;">
+                    <li>Software Developer: $145,000 national average</li>
+                    <li>Data Architect: $143,000 national average</li>
+                    <li>California pays the most for top roles across the board</li>
+                    <li>Where you live matters — top states pay considerably more than the bottom ones</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Visualization 1: Role Comparison -->
+        <div class="visualization">
+            <h2>Visualization 1: Who Earns the Most?</h2>
+            <span class="chart-type">Horizontal Bar Chart &mdash; National Salary by Role</span>
+
+            <div class="description">
+                <h3>What you're looking at</h3>
+                <p>
+                    Each bar is the 2024 national average salary for one data role, sorted highest to lowest.
+                    Software Developers and Data Architects are at the top ($145K and $143K), shown in bold
+                    blue so they stand out immediately. Everything else fades to gray , the hierarchy is
+                    visible before you read a single label.
+                </p>
+                <div class="rubric-note">
+                    <p>
+                        <strong>Why this chart type:</strong> Horizontal bars work well here because the role
+                        names are long and ranking is the whole point, you can scan from top to bottom
+                        without jumping around. Salary values are printed directly on each bar so the axis
+                        is all the context you need. No legend, no gridlines, no clutter.
+                    </p>
+                    <p>
+                        <strong>Fidelity:</strong> Every bar starts at zero and the x-axis is not truncated,
+                        so the proportional differences between roles are shown accurately. The national
+                        averages come directly from published BLS records with no adjustments.
+                    </p>
+                </div>
+            </div>
+
+            <img src="../images/Assignment4_salary_by_role.png"
+                 alt="Horizontal bar chart comparing national average annual salaries for data practitioner roles, with Software Developer and Data Architect highlighted at the top" />
+        </div>
+
+        <!-- Visualization 2: Geographic Variation -->
+        <div class="visualization">
+            <h2>Visualization 2: Does location matter?</h2>
+            <span class="chart-type">Horizontal Bar Chart &mdash; Top &amp; Bottom 15 States for Top Roles</span>
+
+            <div class="description">
+                <h3>What you're looking at</h3>
+                <p>
+                    This chart takes the three highest paying roles from Chart 1 (Software Developer,
+                    Data Architect, Data Scientist) and shows how average salaries vary by state. 
+                    Rather than cramming all 50 states in, it shows just the top 15 and bottom 15 ; the states
+                    where the difference actually matters. A dashed line divides the two groups.
+                </p>
+                <p>
+                    California leads in bold green at the top. The lowest paying states sit in red at the
+                    bottom. A callout in the chart tells you the exact percentage premium California pays
+                    over the lowest state.
+                </p>
+                <div class="rubric-note">
+                    <p>
+                        <strong>Why this chart type:</strong> The 25 middle states don't add much to a
+                        story about location premium, showing the extremes is more honest and more useful.
+                        Every bar shares the same x-axis, so no state is visually inflated relative to
+                        another. The color scheme (green = leading, red = lagging, gray = context) carries
+                        the same logic as Chart 1 and Chart 3.
+                    </p>
+                    <p>
+                        <strong>Fidelity:</strong> Salaries are averaged only across the three roles where
+                        BLS wage data is consistently available across states, so no state's bar is
+                        inflated or deflated by a missing value. The shared zero anchored
+                        x-axis means every bar length reflects the actual salary difference.
+                    </p>
+                </div>
+            </div>
+
+            <img src="../images/Assignment4_salary_by_state.png"
+                 alt="Horizontal bar chart showing average salaries for the top 15 and bottom 15 states for the highest paying data practitioner roles, with California highlighted in green at the top" />
+        </div>
+
+        <!-- Visualization 3: Heatmap -->
+        <div class="visualization">
+            <h2>Visualization 3: The full picture for every top state, every role</h2>
+            <span class="chart-type">Heatmap &mdash; Top 10 States &times; All Data Roles</span>
+
+            <div class="description">
+                <h3>How to read it</h3>
+                <p>
+                    Start at the red box that's California for Software Developer at
+                    $185,750, the highest salary in the entire dataset. Now look at the rest of the
+                    California row: it's consistently the darkest row across every column, which tells
+                    you California's lead isn't a fluke of one role  it holds everywhere.
+                </p>
+                <p>
+                    Pick any column and read down. You'll see how quickly salaries drop as you move
+                    from leading states to the rest. The Software Developer column falls the most
+                    steeply location matters a lot for that role. Business Analyst is noticeably
+                    flatter, meaning you won't gain as much salary by relocating if that's your title.
+                </p>
+                <p>
+                    <strong>About the blank cell:</strong> Virginia's Data Architect value is missing
+                    because the BLS withheld it. They reported 7,140 people employed in that role in
+                    Virginia, but the wage estimate didn't pass their reliability check, so it was
+                    suppressed. Every other cell is a published BLS number.
+                </p>
+                <div class="rubric-note">
+                    <p>
+                        <strong>Why this chart type:</strong> A heatmap is the natural fit when you
+                        have two category axes and one number. Both axes are sorted by average salary so the highest values
+                        cluster in the top-left corner, where your eye goes first. The color scale runs
+                        from the actual minimum to the actual maximum in the data, so the contrast you
+                        see reflects real differences. The blank Virginia cell
+                        is left blank rather than filled in, which keeps the chart honest.
+                    </p>
+                </div>
+            </div>
+
+            <img src="../images/Assignment4_salary_heatmap.png"
+                 alt="Heatmap showing annual mean wages for the top 10 states across all data practitioner roles, with darker blue indicating higher salaries and California for Software Developer highlighted as the maximum cell" />
+        </div>
+
+        <!-- Methodology -->
+        <div class="methodology">
+
+            <h3>Data Source</h3>
+            <ul>
+                <li><strong>BLS Occupational Employment and Wage Statistics (OEWS) 2024</strong> annual
+                    mean wages for data occupations by state, pulled from BLS bulk data files and filtered
+                    down to the seven roles below.
+                   <p>
+                        <a href="https://download.bls.gov/pub/time.series/oe/" target="_blank">BLS OEWS Data</a>
+                   </p> 
+                </li>
+            </ul>
+
+            <h3>Roles Covered</h3>
+            <ul>
+                <li>Software Developer</li>
+                <li>Data Architect</li>
+                <li>Data Scientist</li>
+                <li>Business Analyst</li>
+                <li>Data Analyst</li>
+                <li>Database Administrator</li>
+                <li>Operations Research Analyst</li>
+            </ul>
+
+            <h3>How the Numbers Were Calculated</h3>
+            <p>
+                Numbers come straight from the BLS national level records. For the state comparison
+                chart, salaries were averaged across the top three roles per state , this smooths out noise
+                from states where one role has very few reported workers. The heatmap uses the top 10 states
+                by overall average salary across all seven roles.
+            </p>
+
+            <h3>Limitations Worth Knowing</h3>
+            <p>
+                These are <em>mean</em> wages, which get pulled upward by high earners at big tech firms
+                especially in California. If you're comparing to your own salary, median wages would be a
+                fairer benchmark. Also, these numbers aren't adjusted for cost of living: $145K in San
+                Francisco buys a lot less than $110K in, say, Texas.
+            </p>
+
+            <h3>Tools</h3>
+            <p>
+                Charts were built in Python using Matplotlib and Seaborn, exported as PNG files.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>BLS Occupational Employment and Wage Statistics — Data Practitioner Salary Analysis, March 2026</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -32,3 +32,8 @@ build/
 # Excel temporary files
 ~$*.xlsx
 ~$*.xls
+
+data/BLS_Employment_Wage_oe.data.0.Current
+data/BLS_Employment_Wage_oe.series
+
+data/BLS_Employment_Wage_oe.data.1.AllData
