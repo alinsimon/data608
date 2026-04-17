@@ -37,3 +37,7 @@ data/BLS_Employment_Wage_oe.data.0.Current
 data/BLS_Employment_Wage_oe.series
 
 data/BLS_Employment_Wage_oe.data.1.AllData
+
+# Large raw storm track files downloaded by Assignment5_DataSource.py (re-downloadable)
+data/ibtracs_NA.csv
+data/ibtracs_since1980.csv
