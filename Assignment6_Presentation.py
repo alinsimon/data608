@@ -59,7 +59,7 @@ html = f"""<!DOCTYPE html>
             background: #2c3e50;
             color: white;
             padding: 36px 40px;
-            border-bottom: 4px solid #c0392b;
+            border-bottom: 4px solid;
         }}
         .header h1 {{ font-size: 2.2em; font-weight: 700; margin-bottom: 8px; }}
         .header .subtitle {{ font-size: 1.05em; opacity: 0.9; margin-bottom: 12px; }}
