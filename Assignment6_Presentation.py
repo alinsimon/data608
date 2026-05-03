@@ -1,0 +1,622 @@
+﻿# =============================================================================
+# Assignment 6: Hunger in America — A Presentation for Policymakers
+#
+# Builds an HTML presentation matching Assignment4/5 format.
+# Interactive Plotly charts are embedded as iframes from the html/ folder.
+# Run Assignment6_Analysis.py first to generate the chart files.
+# =============================================================================
+
+from pathlib import Path
+
+HTML_DIR = Path(__file__).parent / "html"
+HTML_DIR.mkdir(exist_ok=True)
+
+OUTPUT_FILE = HTML_DIR / "Assignment6.html"
+
+# Chart files produced by Assignment6_Analysis.py — must exist in html/
+CHART_FILES = {
+    "poverty":   "A6_01_poverty_vs_food_insecurity.html",
+    "income":    "A6_02_food_insecurity_by_income_bracket.html",
+    "age":       "A6_03_food_insecurity_by_age_group.html",
+    "lifecycle": "A6_04_child_to_adult_insecurity.html",
+    "education": "A6_05_food_insecurity_by_education.html",
+}
+
+missing = [f for f in CHART_FILES.values() if not (HTML_DIR / f).exists()]
+if missing:
+    raise FileNotFoundError(
+        f"Missing chart files (run Assignment6_Analysis.py first): {missing}"
+    )
+
+# ---------------------------------------------------------------------------
+# HTML — lean lobbying brief: big numbers, short text, charts front and center
+# ---------------------------------------------------------------------------
+html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunger in America &#8212; Assignment 6</title>
+    <style>
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+
+        body {{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }}
+
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }}
+
+        .header {{
+            background: #2c3e50;
+            color: white;
+            padding: 36px 40px;
+            border-bottom: 4px solid #c0392b;
+        }}
+        .header h1 {{ font-size: 2.2em; font-weight: 700; margin-bottom: 8px; }}
+        .header .subtitle {{ font-size: 1.05em; opacity: 0.9; margin-bottom: 12px; }}
+        .header .meta {{
+            font-size: 0.85em; opacity: 0.75;
+            border-top: 1px solid rgba(255,255,255,0.25);
+            padding-top: 10px; margin-top: 10px;
+        }}
+
+        /* Four big numbers across the top */
+        .stat-strip {{
+            display: flex;
+            background: white;
+            color: #2c3e50;
+        }}
+        .stat-strip .stat-item {{
+            flex: 1;
+            padding: 18px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }}
+        .stat-strip .stat-item:last-child {{ border-right: none; }}
+        .stat-strip .num {{
+            font-size: 2em;
+            font-weight: 700;
+            display: block;
+            line-height: 1.1;
+        }}
+        .stat-strip .label {{
+            font-size: 0.8em;
+            opacity: 0.9;
+            margin-top: 4px;
+            display: block;
+        }}
+
+        .intro {{
+            padding: 24px 40px;
+            background: #fafafa;
+            border-bottom: 1px solid #e0e0e0;
+        }}
+        .intro p {{
+            font-size: 1.05em;
+            color: #555;
+            max-width: 820px;
+        }}
+        .two-q {{
+            margin-top: 14px;
+            display: flex;
+            gap: 14px;
+        }}
+        .q-item {{
+            flex: 1;
+            font-size: 0.9em;
+            color: #444;
+            padding: 10px 14px;
+            background: white;
+            border-left: 3px solid #2c3e50;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }}
+        .q-label {{
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.72em;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 2px;
+            margin-right: 6px;
+            letter-spacing: 0.04em;
+            vertical-align: middle;
+        }}
+
+        .visualization {{
+            padding: 36px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }}
+        .visualization h2 {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #2c3e50;
+            font-size: 1.55em;
+            margin-bottom: 4px;
+        }}
+        .viz-num {{
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1.5px solid #2c3e50;
+            color: #2c3e50;
+            font-size: 0.5em;
+            font-weight: 700;
+            line-height: 1;
+        }}
+        .visualization .chart-type {{
+            display: inline-block;
+            background: transparent;
+            color: #aaa;
+            border: 1px solid #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }}
+        .visualization .interactive-hint {{
+            display: block;
+            font-size: 0.82em;
+            color: #999;
+            font-style: italic;
+            margin-bottom: 2px;
+        }}
+        .visualization iframe {{
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 12px;
+            display: block;
+        }}
+
+        /* Brief context sentence(s) under the chart */
+        .chart-context {{
+            font-size: 0.97em;
+            color: #555;
+            margin-top: 14px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }}
+        .chart-context strong {{ color: #2c3e50; }}
+
+        /* Red-border policy ask with tight bullets */
+        .policy-ask {{
+            margin-top: 10px;
+            padding: 14px 18px;
+            background: #fff5f5;
+            border-radius: 0 4px 4px 0;
+        }}
+        .policy-ask .ask-label {{
+            font-size: 0.78em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #c0392b;
+            margin-bottom: 6px;
+        }}
+        .policy-ask ul {{
+            margin-left: 18px;
+            color: #555;
+            font-size: 0.95em;
+        }}
+        .policy-ask ul li {{ margin: 3px 0; }}
+
+        .conclusion {{
+            padding: 30px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }}
+        .conclusion h2 {{ color: #2c3e50; font-size: 1.4em; margin-bottom: 12px; }}
+        .conclusion p {{ color: #555; font-size: 1em; margin-bottom: 10px; max-width: 820px; }}
+        .conclusion ul {{ margin-left: 22px; color: #555; font-size: 0.97em; max-width: 820px; }}
+        .conclusion ul li {{ margin: 5px 0; }}
+
+        /* Methodology — visually de-emphasised */
+        .methodology {{
+            padding: 24px 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }}
+        .methodology h2 {{ color: #2c3e50; font-size: 1.05em; margin-bottom: 8px; }}
+        .methodology p {{ font-size: 0.87em; color: #666; line-height: 1.5; margin-bottom: 6px; }}
+
+        .footer {{
+            padding: 20px 40px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            font-size: 0.85em;
+            opacity: 0.9;
+        }}
+
+        /* ── Story Development Focus declaration ─────────────────────────── */
+        .story-dev {{
+            background: #eef2f7;
+            border-bottom: 2px solid #2c3e50;
+            padding: 16px 40px;
+        }}
+        .story-dev-title {{
+            font-size: 0.72em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }}
+        .story-dev-grid {{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 32px;
+        }}
+        .sd-item {{
+            display: flex;
+            gap: 8px;
+            align-items: baseline;
+        }}
+        .sd-label {{
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #c0392b;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }}
+        .sd-val {{
+            font-size: 0.87em;
+            color: #444;
+        }}
+
+        /* ── The Cycle — central saliency visual ─────────────────────────── */
+        .cycle-arc {{
+            padding: 22px 40px 18px;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }}
+        .cycle-arc .cycle-title {{
+            font-size: 1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #2c3e50;
+            margin-bottom: 14px;
+        }}
+        .cycle-flow {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 0;
+            padding-bottom: 4px;
+        }}
+        .cycle-node {{
+            background: #c0392b;
+            color: white;
+            padding: 9px 12px;
+            border-radius: 6px;
+            font-size: 0.82em;
+            font-weight: 600;
+            text-align: center;
+            min-width: 74px;
+            line-height: 1.3;
+        }}
+        .cycle-arrow {{
+            font-size: 1.3em;
+            color: #999;
+            padding: 0 6px;
+        }}
+        .cycle-caption {{
+            margin-top: 12px;
+            font-size: 0.86em;
+            color: #777;
+            font-style: italic;
+        }}
+        .cycle-caption strong {{ color: #27ae60; font-style: normal; }}
+
+        @media (max-width: 768px) {{
+            body {{ padding: 10px; }}
+            .header, .intro, .visualization, .conclusion, .methodology, .footer {{ padding: 20px; }}
+            .header h1 {{ font-size: 1.6em; }}
+            .stat-strip {{ flex-direction: column; }}
+            .stat-strip .stat-item {{ border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }}
+            .visualization iframe {{ height: 480px; }}
+            .story-dev-grid {{ grid-template-columns: 1fr; }}
+        }}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Hunger in America: The Case for Action</h1>
+        <div class="subtitle">What the data tells us about food insecurity, poverty, and why children who go hungry don&rsquo;t simply grow out of it</div>
+        <div class="meta">Census CPS Food Security Supplement 2023 &nbsp;|&nbsp; USDA ERS 2024 &nbsp;|&nbsp; Census ACS 2022 &nbsp;|&nbsp; Alinzon Simon &nbsp;|&nbsp; Data 608 &ndash; Assignment 6</div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Story Development Focus (rubric criterion)                          -->
+    <!-- ================================================================== -->
+    <div class="story-dev">
+        <div class="story-dev-title">Story Development Framework</div>
+        <div class="story-dev-grid">
+            <div class="sd-item">
+                <span class="sd-label">Audience</span>
+                <span class="sd-val">U.S. legislators and political staff making appropriations decisions on federal nutrition programs</span>
+            </div>
+            <div class="sd-item">
+                <span class="sd-label">Story Framework</span>
+                <span class="sd-val">5-act arc  (1)&nbsp;Establish the problem &rarr; (2)&nbsp;Quantify the scale &rarr; (3)&nbsp;Identify who suffers most &rarr; (4)&nbsp;Expose the intergenerational cycle &rarr; (5)&nbsp;Show the exit ramp</span>
+            </div>
+            <div class="sd-item">
+                <span class="sd-label">Messaging Technique</span>
+                <span class="sd-val">Assertion-Evidence  each section headline asserts the conclusion; the chart below it is the evidence</span>
+            </div>
+            <div class="sd-item">
+                <span class="sd-label">Visual Selection</span>
+                <span class="sd-val">Scatter plots for state-level correlation &bull; Grouped bars for demographic sub-group comparison &bull; Interactive tooltips replace data labels to preserve chart simplicity</span>
+            </div>
+            <div class="sd-item">
+                <span class="sd-label">Technology &amp; Tools</span>
+                <span class="sd-val">Python 3 &bull; Plotly (self-contained interactive HTML) &bull; Pandas for data wrangling &bull; SciPy for regression &bull; Census CPS microdata weighted with HHSUPWGT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stat strip -->
+    <div class="stat-strip">
+        <div class="stat-item">
+            <span class="num">44M</span>
+            <span class="label">Americans are food insecure</span>
+        </div>
+        <div class="stat-item">
+            <span class="num">1 in 5</span>
+            <span class="label">School-age children</span>
+        </div>
+        <div class="stat-item">
+            <span class="num">39.4%</span>
+            <span class="label">Of households below the poverty line</span>
+        </div>
+        <div class="stat-item">
+            <span class="num">5&times;</span>
+            <span class="label">More likely without a high school diploma</span>
+        </div>
+    </div>
+
+    <!-- One-paragraph intro -->
+    <div class="intro">
+        <p>
+            Food insecurity in America is not random bad luck. It follows poverty. It falls heaviest on children.
+            And those children carry it into adulthood  creating a cycle that costs the country more to ignore than to fix.
+        </p>
+        <div class="two-q">
+            <div class="q-item"><span class="q-label">Q1</span>How tightly does poverty drive food insecurity and hunger risk across US states? <em>(Charts 1&ndash;2)</em></div>
+            <div class="q-item"><span class="q-label">Q2</span>What actually happens to food-insecure children when they grow up  do they escape the cycle, or does hunger follow them into adulthood? <em>(Charts 3&ndash;5)</em></div>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- The Cycle — central argument made salient (rubric: Saliency)        -->
+    <!-- ================================================================== -->
+    <div class="cycle-arc">
+        <div class="cycle-title">The Argument in One Picture  The Self-Reinforcing Cycle of Hunger</div>
+        <div class="cycle-flow">
+            <div class="cycle-node">Poverty</div>
+            <span class="cycle-arrow">&rarr;</span>
+            <div class="cycle-node">Childhood<br>Hunger</div>
+            <span class="cycle-arrow">&rarr;</span>
+            <div class="cycle-node">School<br>Gaps</div>
+            <span class="cycle-arrow">&rarr;</span>
+            <div class="cycle-node">Lower<br>Education</div>
+            <span class="cycle-arrow">&rarr;</span>
+            <div class="cycle-node">Lower<br>Wages</div>
+            <span class="cycle-arrow">&rarr;</span>
+            <div class="cycle-node">Adult<br>Hunger</div>
+            <span class="cycle-arrow">&rarr;</span>
+            <div class="cycle-node">Poverty &#8635;</div>
+        </div>
+        <p class="cycle-caption">
+            Each of the five charts below provides evidence for one or more links in this chain.
+            <strong>Federal nutrition and education programs are the only proven mechanism to break it.</strong>
+        </p>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Chart 1: Poverty vs Food Insecurity                                 -->
+    <!-- ================================================================== -->
+    <div class="visualization">
+        <h2 class="viz-title-small"><span class="viz-num">1</span>Poverty and Hunger Are the Same Problem</h2>
+        <span class="chart-type">State Scatter  Poverty Rate vs. Food Insecurity Rate</span>
+        <span class="interactive-hint">&#9432; Hover any dot for state details &bull; click legend to filter &bull; zoom with the toolbar</span>
+
+        <iframe src="{CHART_FILES['poverty']}" height="540" frameborder="0" scrolling="no"></iframe>
+
+        <div class="chart-context">
+            Each dot is a state. A state&rsquo;s poverty rate alone explains <strong>55% of the variation</strong> in its food insecurity rate (R&sup2;&nbsp;=&nbsp;0.55).
+            <strong>Green</strong> dots are outperforming the trend; <strong>red</strong> dots are worse than their poverty level would predict  those states need targeted intervention now.
+        </div>
+
+        <div class="policy-ask">
+            <div class="ask-label">What we&rsquo;re asking for</div>
+            <ul>
+                <li>Expand the Earned Income Tax Credit  it reduces poverty and hunger in a single move</li>
+                <li>Increase dedicated funding for red-zone states facing structural barriers beyond income alone</li>
+                <li>Require food insecurity data to be reported alongside poverty statistics in annual federal filings</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Chart 2: Food Insecurity by Income Bracket                          -->
+    <!-- ================================================================== -->
+    <div class="visualization">
+        <h2><span class="viz-num">2</span>Below the Poverty Line, 4 in 10 Households Go Hungry</h2>
+        <span class="chart-type">Grouped Bar  Food Insecurity by Income-to-Poverty Ratio</span>
+        <span class="interactive-hint">&#9432; Hover for exact rates &bull; click legend to show/hide series</span>
+
+        <iframe src="{CHART_FILES['income']}" height="520" frameborder="0" scrolling="no"></iframe>
+
+        <div class="chart-context">
+            Food insecurity is <strong>39.4%</strong> below the poverty line and drops to <strong>7.9%</strong> above the 185% SNAP threshold.
+            The dark bars show very low food security  <strong>17.6%</strong> of the poorest households are regularly skipping meals.
+            That is starvation risk, not inconvenience.
+        </div>
+
+        <div class="policy-ask">
+            <div class="ask-label">What we&rsquo;re asking for</div>
+            <ul>
+                <li>Protect SNAP at current eligibility thresholds  cutting benefits would push millions from 7.9% back toward 39%</li>
+                <li>Expand WIC outreach to families between 130% and 185% of poverty who currently fall through the gap</li>
+                <li>Oppose work requirement changes that remove benefits from families who remain food insecure</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Chart 3: Food Insecurity by Age Group                               -->
+    <!-- ================================================================== -->
+    <div class="visualization">
+        <h2><span class="viz-num">3</span>Nearly 1 in 5 Children in a Classroom Right Now Is Hungry</h2>
+        <span class="chart-type">Grouped Bar  Food Insecurity Rate by Age Group and Sex</span>
+        <span class="interactive-hint">&#9432; Hover for exact rates &bull; click legend to filter by sex</span>
+
+        <iframe src="{CHART_FILES['age']}" height="520" frameborder="0" scrolling="no"></iframe>
+
+        <div class="chart-context">
+            School-age children (5&ndash;17) face the <strong>highest food insecurity of any age group: ~19.5%</strong>.
+            Boys and girls are equally affected  gender is not a factor here, household income is.
+            Rates fall sharply for seniors because Social Security and Medicare provide the income stability
+            that working-age families with children don&rsquo;t have.
+        </div>
+
+        <div class="policy-ask">
+            <div class="ask-label">What we&rsquo;re asking for</div>
+            <ul>
+                <li>Fully fund the National School Lunch and School Breakfast Programs  the most direct intervention available</li>
+                <li>Expand summer EBT so children don&rsquo;t lose meal access when school is out</li>
+                <li>Increase WIC funding to cover all eligible families with children under 5</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Chart 4: Child to Adult Food Insecurity                             -->
+    <!-- ================================================================== -->
+    <div class="visualization">
+        <h2><span class="viz-num">4</span>Hungry Children Become Hungry Adults. The Cycle Doesn&rsquo;t Break Itself.</h2>
+        <span class="chart-type">State Scatter  Child Food Insecurity Rate vs. Young Adult Rate</span>
+        <span class="interactive-hint">&#9432; Hover any dot for state name and exact rates &bull; zoom with the toolbar</span>
+
+        <iframe src="{CHART_FILES['lifecycle']}" height="560" frameborder="0" scrolling="no"></iframe>
+
+        <div class="chart-context">
+            States where children go hungry are <strong>the same states where young adults go hungry</strong> (R&sup2;&nbsp;=&nbsp;0.28).
+            Most dots fall below the equal-rates line  young adult rates are somewhat lower  but in Oklahoma, Arkansas, and Louisiana,
+            more than 1 in 4 young adults remains food insecure. <strong>This is structural, not a phase children age out of.</strong>
+        </div>
+
+        <div class="policy-ask">
+            <div class="ask-label">What we&rsquo;re asking for</div>
+            <ul>
+                <li>Prioritize federal food program funding toward states in the upper-right cluster  they are pre-loading the next decade of adult poverty</li>
+                <li>Support the Child Tax Credit as a hunger-reduction tool alongside nutrition programs</li>
+                <li>Fund tracking that links childhood food insecurity records to adult workforce and health outcomes</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Chart 5: Food Insecurity by Education                               -->
+    <!-- ================================================================== -->
+    <div class="visualization">
+        <h2><span class="viz-num">5</span>Education Is the Exit Ramp  If We Fund It</h2>
+        <span class="chart-type">Grouped Bar  Food Insecurity Rate by Highest Education Level</span>
+        <span class="interactive-hint">&#9432; Hover for exact rates &bull; click legend to show/hide series</span>
+
+        <iframe src="{CHART_FILES['education']}" height="520" frameborder="0" scrolling="no"></iframe>
+
+        <div class="chart-context">
+            No high school diploma: <strong>30.4%</strong> food insecure. College degree: <strong>6.1%</strong> food insecure.
+            That is a <strong>5&times; gap driven by one variable.</strong>
+            A hungry child is less likely to graduate. A household without a diploma is five times more likely to go hungry in adulthood.
+            That is the mechanism of the cycle  and the reason education investment is hunger prevention.
+        </div>
+
+        <div class="policy-ask">
+            <div class="ask-label">What we&rsquo;re asking for</div>
+            <ul>
+                <li>Expand Head Start and early childhood nutrition programs  they keep children school-ready and reduce the dropout pipeline</li>
+                <li>Fund free community college and vocational credentials for low-income adults without a diploma</li>
+                <li>Protect Pell Grants  the primary access route to higher education for first-generation, food-insecure families</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Conclusion                                                           -->
+    <!-- ================================================================== -->
+    <div class="conclusion">
+        <h2>The Bottom Line</h2>
+        <p>
+            Five angles, one story: food insecurity is concentrated, predictable, and self-reinforcing.
+            The programs that interrupt this cycle are not expensive measured against what the cycle costs:
+        </p>
+        <ul>
+            <li><strong>SNAP</strong>  proven to reduce food insecurity and improve child development outcomes</li>
+            <li><strong>WIC</strong>  one of the most cost-effective interventions in the federal budget</li>
+            <li><strong>School Lunch &amp; Summer EBT</strong>  direct impact on the 1-in-5 figure in Chart 3</li>
+            <li><strong>Head Start &amp; early education</strong>  the mechanism that breaks the cycle shown in Charts 4 and 5</li>
+        </ul>
+        <p style="margin-top: 14px;">
+            The data here comes from the same Census Bureau that counts the seats in every Congressional district.
+            Fund these programs  or explain to your constituents why 44 million of them don&rsquo;t deserve a meal.
+        </p>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- Methodology (compact)                                               -->
+    <!-- ================================================================== -->
+    <div class="methodology">
+        <h2>Data &amp; Methodology</h2>
+        <p>
+            <strong>Primary:</strong> Census CPS Food Security Supplement, December 2023 (126,832 records, weighted with HHSUPWGT; food insecurity = HRFS12M1 &isin; &#123;2,3&#125;).
+            Age-group rates are weighted prevalence by state &times; sex &times; age group.
+            <strong>Additional:</strong> USDA ERS Food Security Reports 2024 (state and demographic tables, 3-year averages);
+            Census ACS 1-year 2022, table B17001 (state poverty rates).
+            All charts built in Python with Plotly.
+            <strong>Limitation:</strong> Chart 4 is cross-sectional, not a longitudinal panel  it compares children and young adults in the same state and year, not the same individuals over time.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Census CPS 2023 &nbsp;|&nbsp; USDA ERS 2024 &nbsp;|&nbsp; Census ACS 2022 &nbsp;|&nbsp; Alinzon Simon &nbsp;|&nbsp; Data 608 &ndash; Assignment 6
+    </div>
+
+</div>
+</body>
+</html>
+"""
+
+OUTPUT_FILE.write_text(html, encoding="utf-8")
+print(f"Presentation saved → {OUTPUT_FILE}")
+
