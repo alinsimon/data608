@@ -553,14 +553,6 @@ html = f"""<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- Saliency pull-quote -->
-    <div style="background: linear-gradient(135deg, #c0392b 0%, #922b21 100%); color: white; padding: 28px 50px; text-align: center;">
-        <div style="font-size: 1.55em; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; max-width: 900px; margin: 0 auto;">
-            If China restricts rare earth exports tomorrow, the US cannot produce F-35 jets, wind turbines, MRI machines, or EV motors.
-            <strong>No domestic substitutes exist.</strong>
-        </div>
-        <div style="font-size: 0.88em; opacity: 0.85; margin-top: 12px;">This analysis quantifies that vulnerability for all 43 USGS critical minerals.</div>
-    </div>
 
     <!-- ================================================================== -->
     <!-- The Risk Cascade — How Dependencies Become Crises                   -->
