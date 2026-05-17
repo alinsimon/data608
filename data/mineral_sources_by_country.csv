@@ -1,0 +1,125 @@
+mineral,country,production_share,us_imports_from
+Aluminum,China,0.57,0.18
+Aluminum,Canada,0.05,0.62
+Aluminum,UAE,0.04,0.05
+Antimony,China,0.54,0.53
+Antimony,Russia,0.16,0.08
+Antimony,Tajikistan,0.11,0.05
+Antimony,Myanmar,0.08,0.03
+Arsenic,China,0.7,0.65
+Arsenic,Morocco,0.1,0.2
+Barite,China,0.34,0.32
+Barite,India,0.15,0.18
+Barite,Morocco,0.09,0.12
+Beryllium,United States,0.88,0.0
+Beryllium,China,0.08,0.05
+Bismuth,China,0.8,0.7
+Bismuth,Vietnam,0.08,0.12
+Cesium,Canada,0.8,0.85
+Cesium,Zimbabwe,0.15,0.1
+Chromium,South Africa,0.45,0.38
+Chromium,Kazakhstan,0.2,0.15
+Chromium,India,0.15,0.12
+Cobalt,DR Congo,0.7,0.25
+Cobalt,Russia,0.06,0.08
+Cobalt,China,0.05,0.3
+Cobalt,Australia,0.05,0.12
+Dysprosium,China,0.85,0.9
+Dysprosium,Myanmar,0.1,0.05
+Europium,China,0.85,0.9
+Fluorspar,China,0.6,0.55
+Fluorspar,Mexico,0.19,0.35
+Fluorspar,Mongolia,0.06,0.02
+Gallium,China,0.94,0.53
+Gallium,Germany,0.03,0.24
+Gallium,Ukraine,0.02,0.1
+Germanium,China,0.68,0.54
+Germanium,Belgium,0.12,0.22
+Germanium,Russia,0.08,0.08
+Graphite,China,0.65,0.72
+Graphite,India,0.11,0.05
+Graphite,Brazil,0.08,0.08
+Graphite,Mozambique,0.06,0.04
+Hafnium,France,0.45,0.55
+Hafnium,China,0.35,0.2
+Hafnium,United States,0.15,0.0
+Indium,China,0.57,0.44
+Indium,South Korea,0.14,0.25
+Indium,Japan,0.1,0.15
+Iridium,South Africa,0.85,0.87
+Lithium,Australia,0.47,0.52
+Lithium,Chile,0.26,0.38
+Lithium,China,0.14,0.05
+Lithium,Argentina,0.06,0.03
+Magnesium,China,0.86,0.48
+Magnesium,Russia,0.06,0.08
+Magnesium,Israel,0.04,0.2
+Manganese,South Africa,0.3,0.28
+Manganese,Gabon,0.13,0.22
+Manganese,China,0.13,0.08
+Manganese,Australia,0.12,0.15
+Neodymium,China,0.7,0.8
+Neodymium,Myanmar,0.13,0.05
+Neodymium,United States,0.09,0.0
+Neodymium,Australia,0.05,0.08
+Nickel,Indonesia,0.37,0.15
+Nickel,Philippines,0.13,0.08
+Nickel,Russia,0.1,0.12
+Nickel,Canada,0.08,0.35
+Niobium,Brazil,0.88,0.83
+Niobium,Canada,0.1,0.12
+Palladium,Russia,0.42,0.35
+Palladium,South Africa,0.37,0.3
+Palladium,Canada,0.1,0.15
+Phosphate,China,0.42,0.02
+Phosphate,Morocco,0.14,0.17
+Phosphate,United States,0.1,0.0
+Phosphate,Russia,0.06,0.01
+Platinum,South Africa,0.7,0.42
+Platinum,Russia,0.12,0.12
+Platinum,Zimbabwe,0.08,0.05
+Platinum,Canada,0.05,0.08
+Potash,Canada,0.32,0.82
+Potash,Russia,0.17,0.03
+Potash,Belarus,0.16,0.01
+Potash,China,0.14,0.01
+Praseodymium,China,0.7,0.8
+Praseodymium,Myanmar,0.13,0.05
+Praseodymium,United States,0.09,0.0
+Rhodium,South Africa,0.81,0.85
+Rhodium,Russia,0.12,0.1
+Rubidium,Canada,0.7,0.8
+Rubidium,China,0.25,0.15
+Ruthenium,South Africa,0.82,0.85
+Scandium,China,0.66,0.4
+Scandium,Russia,0.2,0.3
+Scandium,Ukraine,0.1,0.15
+Strontium,Spain,0.36,0.45
+Strontium,China,0.32,0.25
+Strontium,Mexico,0.2,0.25
+Tantalum,DR Congo,0.36,0.15
+Tantalum,Rwanda,0.2,0.08
+Tantalum,China,0.14,0.3
+Tantalum,Brazil,0.12,0.2
+Tellurium,China,0.55,0.45
+Tellurium,Japan,0.18,0.25
+Tellurium,Russia,0.12,0.1
+Terbium,China,0.85,0.9
+Terbium,Myanmar,0.1,0.05
+Tin,China,0.3,0.12
+Tin,Indonesia,0.24,0.18
+Tin,Myanmar,0.14,0.05
+Tin,Peru,0.08,0.25
+Titanium,China,0.54,0.28
+Titanium,Japan,0.18,0.35
+Titanium,Russia,0.11,0.05
+Tungsten,China,0.83,0.42
+Tungsten,Vietnam,0.06,0.22
+Tungsten,Russia,0.03,0.08
+Vanadium,China,0.56,0.35
+Vanadium,Russia,0.21,0.2
+Vanadium,South Africa,0.11,0.15
+Yttrium,China,0.85,0.9
+Zirconium,Australia,0.35,0.48
+Zirconium,South Africa,0.31,0.28
+Zirconium,China,0.13,0.08

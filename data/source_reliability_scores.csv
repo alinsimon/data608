@@ -1,0 +1,36 @@
+country,relationship,political_stability,trade_relations,conflict_risk,strategic_alignment,overall_score
+Canada,Ally,9,10,1,10,9.5
+Australia,Ally,9,10,1,10,9.5
+United States,Ally,8,10,1,10,9.0
+Japan,Ally,9,9,2,10,9.0
+Germany,Ally,8,9,2,9,8.5
+Belgium,Ally,8,9,2,9,8.5
+South Korea,Ally,8,9,3,9,8.0
+France,Ally,7,9,2,8,8.0
+Spain,Ally,7,9,2,8,8.0
+Mexico,Neutral,6,9,2,8,7.5
+Chile,Neutral,7,8,2,8,7.5
+India,Neutral,7,8,3,7,7.0
+Brazil,Neutral,6,8,2,7,7.0
+Morocco,Neutral,6,7,3,7,6.5
+Peru,Neutral,5,8,3,7,6.5
+Israel,Ally,6,9,6,9,6.5
+Philippines,Neutral,5,8,4,7,6.5
+UAE,Neutral,7,8,4,7,6.5
+Argentina,Neutral,5,7,2,6,6.0
+Indonesia,Neutral,6,7,3,6,6.0
+South Africa,Neutral,5,7,4,6,5.5
+Vietnam,Neutral,6,7,4,5,5.5
+Mongolia,Neutral,6,6,4,5,5.0
+Rwanda,Neutral,5,6,5,6,5.0
+Kazakhstan,Neutral,5,6,5,4,4.5
+Gabon,Neutral,4,6,5,5,4.5
+Mozambique,Neutral,4,6,6,5,4.0
+Ukraine,Neutral,3,6,9,8,4.0
+Tajikistan,Neutral,4,5,6,3,3.5
+China,Competitor,7,5,6,2,3.5
+Zimbabwe,Neutral,3,4,6,3,3.0
+DR Congo,Neutral,2,5,8,4,3.0
+Myanmar,Neutral,2,4,9,3,2.5
+Russia,Competitor,5,2,8,1,2.0
+Belarus,Competitor,4,2,8,1,2.0

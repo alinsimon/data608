@@ -1,0 +1,44 @@
+mineral,category,uses,strategic_importance,us_import_reliance_pct
+Phosphate,Agriculture,Fertilizers,8,12
+Potash,Agriculture,Fertilizers,7,93
+Lithium,Energy & Battery,"EV batteries, energy storage",10,25
+Cobalt,Energy & Battery,"EV batteries, superalloys",9,76
+Graphite,Energy & Battery,"Battery anodes, steel production",9,100
+Nickel,Energy & Battery,"Stainless steel, batteries",8,48
+Manganese,Energy & Battery,"Steel, batteries",7,100
+Aluminum,Industrial,"Aerospace, packaging, construction",8,47
+Beryllium,Industrial,"Aerospace, defense electronics",8,0
+Titanium,Industrial,"Aerospace, medical implants",8,90
+Tungsten,Industrial,"Cutting tools, defense",8,50
+Chromium,Industrial,"Stainless steel, plating",7,69
+Tin,Industrial,"Solder, coatings",7,72
+Vanadium,Industrial,"Steel alloys, flow batteries",7,72
+Zirconium,Industrial,"Nuclear reactors, ceramics",7,17
+Antimony,Industrial,"Flame retardants, batteries",6,78
+Cesium,Industrial,"Drilling fluids, atomic clocks",6,100
+Fluorspar,Industrial,"Steel, aluminum, refrigerants",6,100
+Magnesium,Industrial,"Aluminum alloys, desulfurization",6,66
+Arsenic,Industrial,"Semiconductors, wood preservatives",5,100
+Barite,Industrial,"Oil/gas drilling, paints",5,65
+Bismuth,Industrial,"Pharmaceuticals, cosmetics",5,90
+Strontium,Industrial,"Ceramics, pyrotechnics",5,100
+Platinum,PGM,"Catalytic converters, electronics",9,71
+Palladium,PGM,"Catalytic converters, electronics",9,33
+Rhodium,PGM,Catalytic converters,8,91
+Iridium,PGM,"Spark plugs, crucibles",7,92
+Ruthenium,PGM,"Electronics, catalysts",7,93
+Neodymium,Rare Earth,"Magnets for wind turbines, EVs",10,100
+Praseodymium,Rare Earth,"Magnets, glass coloring",9,100
+Dysprosium,Rare Earth,"High-temp magnets, lasers",9,100
+Terbium,Rare Earth,"Phosphors, magnets",8,100
+Europium,Rare Earth,Phosphors for displays,7,100
+Yttrium,Rare Earth,"Phosphors, ceramics",7,100
+Scandium,Rare Earth,"Aerospace alloys, fuel cells",6,100
+Gallium,Technology,"Semiconductors, LEDs, solar cells",9,100
+Tantalum,Technology,"Capacitors, medical implants",9,86
+Germanium,Technology,"Fiber optics, infrared optics",8,30
+Indium,Technology,"LCD screens, solar panels",8,100
+Tellurium,Technology,"Solar panels, thermoelectrics",7,50
+Niobium,Technology,"Steel alloys, superconductors",7,100
+Hafnium,Technology,"Semiconductors, nuclear reactors",7,90
+Rubidium,Technology,"R&D, electronics",5,100
